@@ -1,6 +1,5 @@
 import TodoList from './galaxies/TodoList';
 
-
 const App = () => {
   return (
     <div className='content'>
