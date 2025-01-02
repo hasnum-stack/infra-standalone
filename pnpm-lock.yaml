@@ -25,22 +25,22 @@ importers:
         version: 5.0.2(@types/react@19.0.2)(react@18.3.1)
     devDependencies:
       '@biomejs/biome':
-        specifier: ^1.9.3
+        specifier: ^1.9.4
         version: 1.9.4
       '@rsbuild/core':
-        specifier: ^1.1.8
+        specifier: ^1.1.13
         version: 1.1.13
       '@rsbuild/plugin-less':
         specifier: ^1.1.0
         version: 1.1.0(@rsbuild/core@1.1.13)
       '@rsbuild/plugin-react':
-        specifier: ^1.0.7
+        specifier: ^1.1.0
         version: 1.1.0(@rsbuild/core@1.1.13)
       '@types/react':
-        specifier: ^19.0.0
+        specifier: ^19.0.2
         version: 19.0.2
       '@types/react-dom':
-        specifier: ^19.0.0
+        specifier: ^19.0.2
         version: 19.0.2(@types/react@19.0.2)
       typescript:
         specifier: ^5.7.2
@@ -48,8 +48,8 @@ importers:
 
 packages:
 
-  '@ant-design/colors@7.1.0':
-    resolution: {integrity: sha512-MMoDGWn1y9LdQJQSHiCC20x3uZ3CwQnv9QMz6pCmJOrqdgM9YxsoVVY0wtrdXbmfSgnV0KNk6zi09NAhMR2jvg==}
+  '@ant-design/colors@7.2.0':
+    resolution: {integrity: sha512-bjTObSnZ9C/O8MB/B4OUtd/q9COomuJAR2SYfhxLyHvCKn4EKwCN3e+fWGMo7H5InAyV0wL17jdE9ALrdOW/6A==}
 
   '@ant-design/cssinjs-utils@1.1.3':
     resolution: {integrity: sha512-nOoQMLW1l+xR1Co8NFVYiP8pZp3VjIIzqV6D6ShYF2ljtdwWJn5WSsH+7kvCktXL/yhEtWURKOfH5Xz/gzlwsg==}
@@ -715,8 +715,8 @@ packages:
       react: '*'
       react-dom: '*'
 
-  rc-slider@11.1.7:
-    resolution: {integrity: sha512-ytYbZei81TX7otdC0QvoYD72XSlxvTihNth5OeZ6PMXyEDq/vHdWFulQmfDGyXK1NwKwSlKgpvINOa88uT5g2A==}
+  rc-slider@11.1.8:
+    resolution: {integrity: sha512-2gg/72YFSpKP+Ja5AjC5DPL1YnV8DEITDQrcc1eASrUYjl0esptaBVJBh5nLTXCCp15eD8EuGjwezVGSHhs9tQ==}
     engines: {node: '>=8.x'}
     peerDependencies:
       react: '>=16.9.0'
@@ -900,9 +900,9 @@ packages:
 
 snapshots:
 
-  '@ant-design/colors@7.1.0':
+  '@ant-design/colors@7.2.0':
     dependencies:
-      '@ctrl/tinycolor': 3.6.1
+      '@ant-design/fast-color': 2.0.6
 
   '@ant-design/cssinjs-utils@1.1.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
@@ -932,7 +932,7 @@ snapshots:
 
   '@ant-design/icons@5.5.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@ant-design/colors': 7.1.0
+      '@ant-design/colors': 7.2.0
       '@ant-design/icons-svg': 4.4.2
       '@babel/runtime': 7.26.0
       classnames: 2.5.1
@@ -1331,7 +1331,7 @@ snapshots:
 
   antd@5.22.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      '@ant-design/colors': 7.1.0
+      '@ant-design/colors': 7.2.0
       '@ant-design/cssinjs': 1.22.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@ant-design/cssinjs-utils': 1.1.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@ant-design/icons': 5.5.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1367,7 +1367,7 @@ snapshots:
       rc-resize-observer: 1.4.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-segmented: 2.5.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-select: 14.16.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      rc-slider: 11.1.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      rc-slider: 11.1.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-steps: 6.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-switch: 4.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-table: 7.49.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1708,7 +1708,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  rc-slider@11.1.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  rc-slider@11.1.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@babel/runtime': 7.26.0
       classnames: 2.5.1
