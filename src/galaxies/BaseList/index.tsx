@@ -17,13 +17,14 @@ const columns = [
     key: 'address',
   },
 ];
+
 function BaseList() {
   const dataSource = useStore((state) => state.data);
 
   return (
     <>
       <Form>
-        <Form.Item label='Username'>
+        <Form.Item  label='Username'>
           <Input />
         </Form.Item>
         <Form.Item label='Password'>
@@ -37,4 +38,5 @@ function BaseList() {
     </>
   );
 }
+
 export default BaseList;
