@@ -1,5 +1,6 @@
-import { Table, Form, Input, Button } from 'antd';
-import useStore from './store';
+import { createLazyFileRoute } from '@tanstack/react-router'
+import { Table, Form, Input, Button } from 'antd'
+import useStore from './store'
 const columns = [
   {
     title: 'Name',
@@ -16,27 +17,29 @@ const columns = [
     dataIndex: 'address',
     key: 'address',
   },
-];
+]
 
 function BaseList() {
-  const dataSource = useStore((state) => state.data);
+  const dataSource = useStore((state) => state.data)
 
   return (
     <>
       <Form>
-        <Form.Item  label='Username'>
+        <Form.Item label="Username">
           <Input />
         </Form.Item>
-        <Form.Item label='Password'>
+        <Form.Item label="Password">
           <Input />
         </Form.Item>
         <Form.Item>
-          <Button type='primary'>Submit</Button>
+          <Button type="primary">Submit</Button>
         </Form.Item>
       </Form>
       <Table columns={columns} dataSource={dataSource} />
     </>
-  );
+  )
 }
 
-export default BaseList;
+export const Route = createLazyFileRoute('/base-list/')({
+  component: BaseList,
+})

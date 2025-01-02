@@ -1,5 +1,5 @@
 {
-  "name": "rsbuild-react-ts",
+  "name": "infra-standalone",
   "private": true,
   "version": "1.0.0",
   "scripts": {
@@ -11,6 +11,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@tanstack/react-router": "^1.93.0",
     "antd": "^5.22.7",
     "antd-style": "^3.7.1",
     "react": "^18.3.1",
@@ -22,6 +23,8 @@
     "@rsbuild/core": "^1.1.13",
     "@rsbuild/plugin-less": "^1.1.0",
     "@rsbuild/plugin-react": "^1.1.0",
+    "@tanstack/router-devtools": "^1.93.0",
+    "@tanstack/router-plugin": "^1.93.0",
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
     "husky": "^9.1.7",
@@ -29,8 +32,6 @@
     "typescript": "^5.7.2"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "biome check --write"
-    ]
+    "*.{js,jsx,ts,tsx}": ["biome check --write"]
   }
 }

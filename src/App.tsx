@@ -1,14 +1,18 @@
-import TodoList from './galaxies/TodoList';
-import BaseList from './galaxies/BaseList';
-const App = () => {
-  return (
-    <div className='content'>
-      <h1>Rsbuild with React</h1>
-      <p>Start building amazing things with Rsbuild.</p>
-      <TodoList />
-      <BaseList />
-    </div>
-  );
-};
+import { RouterProvider, createRouter } from '@tanstack/react-router';
 
+// Import the generated route tree
+import { routeTree } from './.starship/routeTree.gen';
+
+// Create a new router instance
+const router = createRouter({ routeTree });
+
+// Register the router instance for type safety
+declare module '@tanstack/react-router' {
+  interface Register {
+    router: typeof router;
+  }
+}
+function App() {
+  return <RouterProvider router={router} />;
+}
 export default App;
