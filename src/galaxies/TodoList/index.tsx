@@ -1,4 +1,4 @@
-import { Button, List, Input } from 'antd';
+import { Button, Input, List } from 'antd';
 import { createStyles } from 'antd-style';
 import useStore from './store';
 
@@ -23,14 +23,18 @@ function TodoList() {
         dataSource={todos}
         renderItem={(todo) => (
           <List.Item
-            actions={[<Button onClick={() => removeTodo(todo)}>Delete</Button>]}
+            actions={[
+              <Button key='del' onClick={() => removeTodo(todo)}>
+                Delete
+              </Button>,
+            ]}
           >
             {todo}
           </List.Item>
         )}
       />
       <Input
-        placeholder='Enter a todo'
+        placeholder='Enter a todo ~'
         onPressEnter={(e) => {
           addTodo?.(e.currentTarget.value);
           e.currentTarget.value = '';
