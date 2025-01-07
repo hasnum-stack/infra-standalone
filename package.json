@@ -33,5 +33,8 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": ["biome check --write"]
+  },
+  "engines": {
+    "pnpm": "^9.15.0"
   }
 }
