@@ -1,29 +1,10 @@
-# Rsbuild Project
+# 前端基础建设
 
-## Setup
+## 技术栈
 
-Install the dependencies:
-
-```bash
-pnpm install
-```
-
-## Get Started
-
-Start the dev server:
-
-```bash
-pnpm dev
-```
-
-Build the app for production:
-
-```bash
-pnpm build
-```
-
-Preview the production build locally:
-
-```bash
-pnpm preview
-```
+- 打包工具: rsbuild
+- js库: react/react-dom
+- 状态管理: zustand
+- ui框架: antd
+- 样式: antd-style
+- 路由: 待定
