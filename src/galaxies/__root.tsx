@@ -7,6 +7,7 @@ export const Route = createRootRoute({
       <div>
         <Link to='/todo-list'>Home</Link>
         <Link to='/base-list'>About</Link>
+        <Link to='/form/basic'>form/basic</Link>
       </div>
       <hr />
       <Outlet />

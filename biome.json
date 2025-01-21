@@ -3,6 +3,9 @@
   "organizeImports": {
     "enabled": true
   },
+  "files": {
+    "ignore": [".starship"]
+  },
   "vcs": {
     "enabled": true,
     "clientKind": "git",

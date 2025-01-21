@@ -19,6 +19,8 @@ import { Route as rootRoute } from './../galaxies/__root'
 const TodoListIndexLazyImport = createFileRoute('/todo-list/')()
 const FormIndexLazyImport = createFileRoute('/form/')()
 const BaseListIndexLazyImport = createFileRoute('/base-list/')()
+const FormBasicIndexLazyImport = createFileRoute('/form/basic/')()
+const FormAntdIndexLazyImport = createFileRoute('/form/antd/')()
 
 // Create/Update Routes
 
@@ -46,6 +48,22 @@ const BaseListIndexLazyRoute = BaseListIndexLazyImport.update({
   import('./../galaxies/base-list/index.lazy').then((d) => d.Route),
 )
 
+const FormBasicIndexLazyRoute = FormBasicIndexLazyImport.update({
+  id: '/form/basic/',
+  path: '/form/basic/',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() =>
+  import('./../galaxies/form/basic/index.lazy').then((d) => d.Route),
+)
+
+const FormAntdIndexLazyRoute = FormAntdIndexLazyImport.update({
+  id: '/form/antd/',
+  path: '/form/antd/',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() =>
+  import('./../galaxies/form/antd/index.lazy').then((d) => d.Route),
+)
+
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
@@ -71,6 +89,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TodoListIndexLazyImport
       parentRoute: typeof rootRoute
     }
+    '/form/antd/': {
+      id: '/form/antd/'
+      path: '/form/antd'
+      fullPath: '/form/antd'
+      preLoaderRoute: typeof FormAntdIndexLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/form/basic/': {
+      id: '/form/basic/'
+      path: '/form/basic'
+      fullPath: '/form/basic'
+      preLoaderRoute: typeof FormBasicIndexLazyImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -80,12 +112,16 @@ export interface FileRoutesByFullPath {
   '/base-list': typeof BaseListIndexLazyRoute
   '/form': typeof FormIndexLazyRoute
   '/todo-list': typeof TodoListIndexLazyRoute
+  '/form/antd': typeof FormAntdIndexLazyRoute
+  '/form/basic': typeof FormBasicIndexLazyRoute
 }
 
 export interface FileRoutesByTo {
   '/base-list': typeof BaseListIndexLazyRoute
   '/form': typeof FormIndexLazyRoute
   '/todo-list': typeof TodoListIndexLazyRoute
+  '/form/antd': typeof FormAntdIndexLazyRoute
+  '/form/basic': typeof FormBasicIndexLazyRoute
 }
 
 export interface FileRoutesById {
@@ -93,14 +129,27 @@ export interface FileRoutesById {
   '/base-list/': typeof BaseListIndexLazyRoute
   '/form/': typeof FormIndexLazyRoute
   '/todo-list/': typeof TodoListIndexLazyRoute
+  '/form/antd/': typeof FormAntdIndexLazyRoute
+  '/form/basic/': typeof FormBasicIndexLazyRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/base-list' | '/form' | '/todo-list'
+  fullPaths:
+    | '/base-list'
+    | '/form'
+    | '/todo-list'
+    | '/form/antd'
+    | '/form/basic'
   fileRoutesByTo: FileRoutesByTo
-  to: '/base-list' | '/form' | '/todo-list'
-  id: '__root__' | '/base-list/' | '/form/' | '/todo-list/'
+  to: '/base-list' | '/form' | '/todo-list' | '/form/antd' | '/form/basic'
+  id:
+    | '__root__'
+    | '/base-list/'
+    | '/form/'
+    | '/todo-list/'
+    | '/form/antd/'
+    | '/form/basic/'
   fileRoutesById: FileRoutesById
 }
 
@@ -108,12 +157,16 @@ export interface RootRouteChildren {
   BaseListIndexLazyRoute: typeof BaseListIndexLazyRoute
   FormIndexLazyRoute: typeof FormIndexLazyRoute
   TodoListIndexLazyRoute: typeof TodoListIndexLazyRoute
+  FormAntdIndexLazyRoute: typeof FormAntdIndexLazyRoute
+  FormBasicIndexLazyRoute: typeof FormBasicIndexLazyRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   BaseListIndexLazyRoute: BaseListIndexLazyRoute,
   FormIndexLazyRoute: FormIndexLazyRoute,
   TodoListIndexLazyRoute: TodoListIndexLazyRoute,
+  FormAntdIndexLazyRoute: FormAntdIndexLazyRoute,
+  FormBasicIndexLazyRoute: FormBasicIndexLazyRoute,
 }
 
 export const routeTree = rootRoute
@@ -128,7 +181,9 @@ export const routeTree = rootRoute
       "children": [
         "/base-list/",
         "/form/",
-        "/todo-list/"
+        "/todo-list/",
+        "/form/antd/",
+        "/form/basic/"
       ]
     },
     "/base-list/": {
@@ -139,6 +194,12 @@ export const routeTree = rootRoute
     },
     "/todo-list/": {
       "filePath": "todo-list/index.lazy.tsx"
+    },
+    "/form/antd/": {
+      "filePath": "form/antd/index.lazy.tsx"
+    },
+    "/form/basic/": {
+      "filePath": "form/basic/index.lazy.tsx"
     }
   }
 }
