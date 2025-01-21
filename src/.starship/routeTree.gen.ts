@@ -12,20 +12,38 @@ import { createFileRoute } from '@tanstack/react-router'
 
 // Import Routes
 
-import { Route as rootRoute } from './../~galaxies/~__root'
+import { Route as rootRoute } from './../galaxies/__root'
 
 // Create Virtual Routes
 
+const TodoListIndexLazyImport = createFileRoute('/todo-list/')()
+const FormIndexLazyImport = createFileRoute('/form/')()
 const BaseListIndexLazyImport = createFileRoute('/base-list/')()
 
 // Create/Update Routes
+
+const TodoListIndexLazyRoute = TodoListIndexLazyImport.update({
+  id: '/todo-list/',
+  path: '/todo-list/',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() =>
+  import('./../galaxies/todo-list/index.lazy').then((d) => d.Route),
+)
+
+const FormIndexLazyRoute = FormIndexLazyImport.update({
+  id: '/form/',
+  path: '/form/',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() =>
+  import('./../galaxies/form/index.lazy').then((d) => d.Route),
+)
 
 const BaseListIndexLazyRoute = BaseListIndexLazyImport.update({
   id: '/base-list/',
   path: '/base-list/',
   getParentRoute: () => rootRoute,
 } as any).lazy(() =>
-  import('./../~galaxies/~base-list/~index.lazy').then((d) => d.Route),
+  import('./../galaxies/base-list/index.lazy').then((d) => d.Route),
 )
 
 // Populate the FileRoutesByPath interface
@@ -39,6 +57,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BaseListIndexLazyImport
       parentRoute: typeof rootRoute
     }
+    '/form/': {
+      id: '/form/'
+      path: '/form'
+      fullPath: '/form'
+      preLoaderRoute: typeof FormIndexLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/todo-list/': {
+      id: '/todo-list/'
+      path: '/todo-list'
+      fullPath: '/todo-list'
+      preLoaderRoute: typeof TodoListIndexLazyImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -46,32 +78,42 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/base-list': typeof BaseListIndexLazyRoute
+  '/form': typeof FormIndexLazyRoute
+  '/todo-list': typeof TodoListIndexLazyRoute
 }
 
 export interface FileRoutesByTo {
   '/base-list': typeof BaseListIndexLazyRoute
+  '/form': typeof FormIndexLazyRoute
+  '/todo-list': typeof TodoListIndexLazyRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/base-list/': typeof BaseListIndexLazyRoute
+  '/form/': typeof FormIndexLazyRoute
+  '/todo-list/': typeof TodoListIndexLazyRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/base-list'
+  fullPaths: '/base-list' | '/form' | '/todo-list'
   fileRoutesByTo: FileRoutesByTo
-  to: '/base-list'
-  id: '__root__' | '/base-list/'
+  to: '/base-list' | '/form' | '/todo-list'
+  id: '__root__' | '/base-list/' | '/form/' | '/todo-list/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   BaseListIndexLazyRoute: typeof BaseListIndexLazyRoute
+  FormIndexLazyRoute: typeof FormIndexLazyRoute
+  TodoListIndexLazyRoute: typeof TodoListIndexLazyRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   BaseListIndexLazyRoute: BaseListIndexLazyRoute,
+  FormIndexLazyRoute: FormIndexLazyRoute,
+  TodoListIndexLazyRoute: TodoListIndexLazyRoute,
 }
 
 export const routeTree = rootRoute
@@ -82,13 +124,21 @@ export const routeTree = rootRoute
 {
   "routes": {
     "__root__": {
-      "filePath": "~__root.tsx",
+      "filePath": "__root.tsx",
       "children": [
-        "/base-list/"
+        "/base-list/",
+        "/form/",
+        "/todo-list/"
       ]
     },
     "/base-list/": {
-      "filePath": "~base-list/~index.lazy.tsx"
+      "filePath": "base-list/index.lazy.tsx"
+    },
+    "/form/": {
+      "filePath": "form/index.lazy.tsx"
+    },
+    "/todo-list/": {
+      "filePath": "todo-list/index.lazy.tsx"
     }
   }
 }

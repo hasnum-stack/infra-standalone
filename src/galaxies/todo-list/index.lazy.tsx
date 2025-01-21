@@ -1,3 +1,4 @@
+import { createLazyFileRoute } from '@tanstack/react-router';
 import { Button, Input, List } from 'antd';
 import { createStyles } from 'antd-style';
 import useStore from './store';
@@ -45,4 +46,6 @@ function TodoList() {
   );
 }
 
-export default TodoList;
+export const Route = createLazyFileRoute('/todo-list/')({
+  component: TodoList,
+});

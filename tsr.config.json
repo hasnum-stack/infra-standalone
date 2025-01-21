@@ -1,5 +1,5 @@
 {
-  "routeFilePrefix": "~",
   "generatedRouteTree": "./src/.starship/routeTree.gen.ts",
-  "routesDirectory": "./src/~galaxies"
+  "routesDirectory": "./src/galaxies",
+  "routeFileIgnorePattern": "^store$"
 }
