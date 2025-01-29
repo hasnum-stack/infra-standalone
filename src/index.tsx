@@ -1,5 +1,6 @@
 import ReactDOM from 'react-dom/client';
 import App from './App';
+import './styles/index.ts';
 
 const rootEl = document.getElementById('root');
 if (rootEl) {
